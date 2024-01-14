@@ -1,0 +1,52 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class FruitBasket {
+
+    public static void main(String[] args) {
+        Stack<String> basket = new Stack<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of fruits you would like to catch: ");
+        int numFruits = scanner.nextInt();
+
+        char[] validChoices = {'A', 'O', 'M', 'G'};
+
+        for (int i = 0; i < numFruits; i++) {
+            System.out.print("Press A for apple, O for orange, M for mango, or G for guava: ");
+            char choice = scanner.next().toUpperCase().charAt(0);
+
+            int index = -1;
+            for (int j = 0; j < validChoices.length; j++) {
+                if (choice == validChoices[j]) {
+                    index = j;
+                    break;
+                }
+            }
+
+            if (index != -1) {
+                String fruit = index == 0 ? "apple" : (index == 1 ? "orange" : (index == 2 ? "mango" : "guava"));
+                basket.push(fruit);
+            } else {
+                System.out.println("Invalid choice. Try again.");
+                i--;
+            }
+        }
+
+        System.out.println("The fruits in the basket are: " + basket);
+
+        System.out.println("Press 'E' to start eating fruits.");
+        while (!basket.isEmpty()) {
+            char eatChoice = scanner.next().toUpperCase().charAt(0);
+            if (eatChoice == 'E') {
+                if (!basket.isEmpty()) {
+                    System.out.println(" " + basket.pop() + ".  " + basket);
+                } else {
+                    System.out.println("");
+                }
+            } else {
+                System.out.println("Invalid choice. Press 'E' to eat fruits.");
+            }
+        }
+    }
+}
