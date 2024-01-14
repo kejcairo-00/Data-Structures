@@ -1,0 +1,42 @@
+import java.util.LinkedList;
+
+public class SongAlbumSeriosa {
+    public static void main(String[] args) {
+
+        LinkedList<String> songs = new LinkedList<>();
+        LinkedList<String> artists = new LinkedList<>();
+        LinkedList<String> album = new LinkedList<>();
+
+        songs.add("New Flame");
+        songs.add("LWKY");
+        songs.add("Patiwakal");
+        songs.add("Marlboro Black");
+        songs.add("Bagsakan");
+
+        artists.add("Usher & Rick Ross");
+        artists.add("SwKieth");
+        artists.add("Jrldm");
+        artists.add("Because");
+        artists.add("PNE");
+
+        for (int i = 0; i < songs.size(); i++) {
+            String combination = songs.get(i) + " - " + artists.get(i);
+            album.add(combination);
+        }
+
+        System.out.println("Songs:");
+        for (String song : songs) {
+            System.out.println(song);
+        }
+
+        System.out.println("\nArtists:");
+        for (String artist : artists) {
+            System.out.println(artist);
+        }
+
+        System.out.println("\nAlbum:");
+        for (String songArtist : album) {
+            System.out.println(songArtist);
+        }
+    }
+}
